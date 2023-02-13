@@ -1,17 +1,17 @@
-import type {NextPage} from 'next'
+import {NextPage} from "next";
+import {SignIn} from "../components/Auth/SignIn";
 import {authService} from "../lib/services";
-import {MainPage} from "../components/MainPage/MainPage";
 
 export const getServerSideProps = async function (context : any) {
+    // console.log(req);
     return await authService.authMiddleware(context);
 }
-
 const Home: NextPage = () => {
-  return (
-      <>
-        <MainPage/>
-      </>
-  )
+    return (
+        <>
+            <SignIn/>
+        </>
+    )
 }
 
 export default Home
